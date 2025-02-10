@@ -4,15 +4,53 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link href="./output.css" rel="stylesheet" />
-		<title>Document</title>
+		<title>Valentine's</title>
+		<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 	</head>
-	<body class="min-h-screen grid place-content-center radial-blue">
-		<div
-			class="bg-emerald-500 w-52 h-52 rounded-full shadow-2xl grid place-content-center"
-		>
-			<div class="bg-teal-200 w-32 h-32 rounded-full grid place-content-center">
-				<div class="bg-red-500 w-16 h-16 rounded-full"></div>
-			</div>
+	<body
+		class="min-h-screen grid grid-cols-2 gap-6 place-content-center bg-pink-300"
+	>
+		<h1 class="text-5xl text-black col-span-2 text-center">
+			Pot să fiu your <span class="text-red-700">valentine</span> ?
+		</h1>
+		<div class="flex justify-center">
+			<button id="Da" class="bg-red-600 text-white rounded-full w-24 h-10">
+				Da💝
+			</button>
+		</div>
+		<div class="flex justify-center">
+			<button
+				id="Nu"
+				class="bg-gray-600 text-white rounded-full w-24 h-10 transition-all"
+			>
+				Nu😭
+			</button>
 		</div>
 	</body>
+	<script>
+		var nuBtn = document.getElementById("Nu");
+		var daBtn = document.getElementById("Da");
+		const jsConfetti = new JSConfetti();
+
+		function blowConfetti() {
+			jsConfetti.addConfetti({
+				emojis: ["❤️", "😍"],
+			});
+		}
+
+		function moveButton() {
+			var randX = Math.floor(
+				Math.random() * (window.innerWidth - nuBtn.offsetWidth)
+			);
+			var randY = Math.floor(
+				Math.random() * (window.innerHeight - nuBtn.offsetHeight)
+			);
+			nuBtn.style.position = "absolute";
+			nuBtn.style.left = `${randX}px`;
+			nuBtn.style.top = `${randY}px`;
+		}
+
+		daBtn.addEventListener("click", blowConfetti);
+		nuBtn.addEventListener("click", moveButton);
+	</script>
 </html>
