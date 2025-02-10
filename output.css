@@ -29,6 +29,7 @@
     --default-mono-font-variation-settings: var(
       --font-mono--font-variation-settings
     );
+    --animate-shake: shake 2s infinite;
   }
 }
 @layer base {
@@ -185,6 +186,9 @@
   .grid {
     display: grid;
   }
+  .hidden {
+    display: none;
+  }
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
@@ -194,11 +198,23 @@
   .w-24 {
     width: calc(var(--spacing) * 24);
   }
+  .w-80 {
+    width: calc(var(--spacing) * 80);
+  }
+  .animate-shake {
+    animation: var(--animate-shake);
+  }
   .grid-cols-2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .flex-col {
+    flex-direction: column;
+  }
   .place-content-center {
     place-content: center;
+  }
+  .items-center {
+    align-items: center;
   }
   .justify-center {
     justify-content: center;
@@ -238,5 +254,22 @@
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+}
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+  12.5% {
+    transform: rotate(20deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  37.5% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(0deg);
   }
 }

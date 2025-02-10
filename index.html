@@ -7,24 +7,38 @@
 		<title>Valentine's</title>
 		<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
 	</head>
-	<body
-		class="min-h-screen grid grid-cols-2 gap-6 place-content-center bg-pink-300"
-	>
-		<h1 class="text-5xl text-black col-span-2 text-center">
-			Pot să fiu your <span class="text-red-700">valentine</span> ?
-		</h1>
-		<div class="flex justify-center">
-			<button id="Da" class="bg-red-600 text-white rounded-full w-24 h-10">
-				Da💝
-			</button>
+	<body class="bg-pink-300">
+		<div
+			id="letter"
+			class="flex flex-col justify-center items-center min-h-screen"
+		>
+			<h1 class="text-5xl">Deschide-l!</h1>
+			<img
+				class="w-80 animate-shake"
+				src="img/love-letter.png"
+				alt="Love Letter Envelope"
+			/>
 		</div>
-		<div class="flex justify-center">
-			<button
-				id="Nu"
-				class="bg-gray-600 text-white rounded-full w-24 h-10 transition-all"
-			>
-				Nu😭
-			</button>
+		<div
+			id="open"
+			class="min-h-screen hidden grid-cols-2 gap-6 place-content-center"
+		>
+			<h1 class="text-5xl text-black col-span-2 text-center">
+				Pot să fiu your <span class="text-red-700">valentine</span> ?
+			</h1>
+			<div class="flex justify-center">
+				<button id="Da" class="bg-red-600 text-white rounded-full w-24 h-10">
+					Da💝
+				</button>
+			</div>
+			<div class="flex justify-center">
+				<button
+					id="Nu"
+					class="bg-gray-600 text-white rounded-full w-24 h-10 transition-all"
+				>
+					Nu😭
+				</button>
+			</div>
 		</div>
 	</body>
 	<script>
@@ -50,7 +64,14 @@
 			nuBtn.style.top = `${randY}px`;
 		}
 
+		function openLetter() {
+			document.getElementById("letter").classList.toggle("hidden");
+			document.getElementById("open").classList.toggle("grid");
+			document.getElementById("open").classList.toggle("hidden");
+		}
+
 		daBtn.addEventListener("click", blowConfetti);
 		nuBtn.addEventListener("click", moveButton);
+		document.getElementById("letter").addEventListener("click", openLetter);
 	</script>
 </html>

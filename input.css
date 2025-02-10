@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@theme {
+	--animate-shake: shake 2s infinite;
+
+	@keyframes shake {
+		0% {
+			transform: rotate(0deg);
+		}
+		12.5% {
+			transform: rotate(20deg);
+		}
+		25% {
+			transform: rotate(-20deg);
+		}
+		37.5% {
+			transform: rotate(20deg);
+		}
+		50% {
+			transform: rotate(0deg);
+		}
+	}
+}
