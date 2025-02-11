@@ -1,1 +1,1 @@
-Go to [georgevigu.github.io](georgevigu.github.io) for **live demo**.
+Go to georgevigu.github.io for **live demo**.
